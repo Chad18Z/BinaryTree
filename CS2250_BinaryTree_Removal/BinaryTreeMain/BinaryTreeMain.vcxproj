@@ -69,13 +69,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\TrophyCase\TrophyCase\Trophy.cpp" />
-    <ClCompile Include="..\..\TrophyCase\TrophyCase\Trophycase.cpp" />
     <ClCompile Include="..\CS2250_BinaryTreeLecture\main.cpp" />
+    <ClCompile Include="G:\Downloads\TrophyCase\TrophyCase\TrophyCase\Trophy.cpp" />
+    <ClCompile Include="G:\Downloads\TrophyCase\TrophyCase\TrophyCase\Trophycase.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\TrophyCase\TrophyCase\Trophy.h" />
-    <ClInclude Include="..\..\TrophyCase\TrophyCase\Trophycase.h" />
+    <ClInclude Include="G:\Downloads\TrophyCase\TrophyCase\TrophyCase\Trophy.h" />
+    <ClInclude Include="G:\Downloads\TrophyCase\TrophyCase\TrophyCase\Trophycase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
