@@ -4,9 +4,9 @@
 #include <iostream>
 #include <string>
 #include "Trophy.h"
+#include "BinaryTree.h"
 
 using namespace std;
-
 
 class Trophycase
 {
@@ -16,13 +16,13 @@ public:
 	void AddTrophy(Trophy& trophy);
 	int GetNumberOfTrophies();
 	int GetSizeOfTrophycase();
-	Trophy& GetTrophy(int index);
+	//Trophy& GetTrophy(string name); //search for trophy
 	void DeleteTrophy(int index);
-
+	
 private:
-	Trophy* Trophies;
-	int m_size; // holds the trophy's level
-	int m_count; // holds the trophy's color
+	BinaryTree* Trophies;
+	int m_size; 
+	int m_count; 
 };
 
 #endif

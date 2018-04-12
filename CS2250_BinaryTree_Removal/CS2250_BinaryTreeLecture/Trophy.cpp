@@ -81,6 +81,42 @@ void Trophy::Print()
 	cout << *m_level << " : ";
 	cout << ColorToString(*m_color) << " ]" << endl;
 }
+const bool Trophy::operator<(const Trophy& a) const
+{
+
+	if (this->m_level > a.m_level)
+	{
+		return true;
+	}
+	else if (a.m_level < this->m_level && a.m_color < this->m_color)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+const bool Trophy::operator>(const Trophy& a) const
+{
+	if (a.m_level > this->m_level)
+	{
+		return true;
+	}
+	else if (a.m_level == this->m_level && a.m_color > this->m_color)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+const bool Trophy::operator==(const Trophy& a) const
+{
+	return false;
+}
+
 // this function converts a Color value to a string
 string Trophy::ColorToString(Color& color)
 {

@@ -18,5 +18,19 @@
     <ClCompile Include="..\CS2250_BinaryTreeLecture\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\CS2250_BinaryTreeLecture\Trophycase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CS2250_BinaryTreeLecture\Trophy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\CS2250_BinaryTreeLecture\Trophycase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CS2250_BinaryTreeLecture\Trophy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

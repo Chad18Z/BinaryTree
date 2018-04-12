@@ -11,9 +11,9 @@ int BinaryTreeNode::GetNbrNodes()
 // Store the item in the node
 // Set it to have no children
 // Increment the node count
-BinaryTreeNode::BinaryTreeNode(const string& item)
+BinaryTreeNode::BinaryTreeNode(const Trophy& item)
 {
-	data = item;
+	*data = item;
 	right = NULL;
 	left = NULL;
 	height = 0;
@@ -53,9 +53,9 @@ BinaryTreeNode* BinaryTreeNode::GetRight() const
 }
 
 // Return the data in the node
-string BinaryTreeNode::GetData() const
+const Trophy& BinaryTreeNode::GetData() const
 {
-	return data;
+	return *data;
 }
 
 // Return the height of the node
@@ -69,7 +69,7 @@ int BinaryTreeNode::GetHeight() const
 // Set the left child
 void BinaryTreeNode::SetLeft(BinaryTreeNode* left)
 {
-	this->left = left;
+	*left = *left;
 }
 
 // Set the right child
@@ -79,9 +79,9 @@ void BinaryTreeNode::SetRight(BinaryTreeNode* right)
 }
 
 // Set the data
-void BinaryTreeNode::SetData(const string& data)
+void BinaryTreeNode::SetData(const Trophy& trophy)
 {
-	this->data = data;
+	*data = trophy;
 }
 
 // Set the height
@@ -90,9 +90,14 @@ void BinaryTreeNode::SetHeight(int height)
 	this->height = height;
 }
 
+
+
 // Display the node's data
 ostream& operator<<(ostream& sout, const BinaryTreeNode& node)
 {
 	sout << node.GetData();
 	return sout;
 }
+
+
+

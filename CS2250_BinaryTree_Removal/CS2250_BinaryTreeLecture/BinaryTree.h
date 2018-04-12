@@ -15,9 +15,9 @@ public:
 	~BinaryTree(void);
 
 	// Facilitators
-	void Insert(const string& item);
-	bool Search(const string& item) const;
-	bool Remove(const string& item);
+	void Insert(const Trophy& item);
+	bool Search(const Trophy& item) const;
+	bool Remove(const Trophy& item);
 
 	// Operators
 	friend ostream& operator<< (ostream& sout, const BinaryTree& tree);
@@ -34,9 +34,9 @@ private:
 	void PostOrderPrint(ostream& sout, BinaryTreeNode* curr) const;
 
 	// Recursive Facilitators
-	void Insert(const string& item, BinaryTreeNode* curr);
-	bool Search(const string& item, BinaryTreeNode* curr) const;
-	bool Remove(const string& item, BinaryTreeNode* curr);
+	void Insert(const Trophy& item, BinaryTreeNode* curr);
+	bool Search(const Trophy& item, BinaryTreeNode* curr) const;
+	bool Remove(const Trophy& item, BinaryTreeNode* curr);
 	void MakeEmpty(BinaryTreeNode* curr);
 
 	// Facilitators

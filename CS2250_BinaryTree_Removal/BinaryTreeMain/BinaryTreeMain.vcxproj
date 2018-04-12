@@ -70,6 +70,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\CS2250_BinaryTreeLecture\main.cpp" />
+    <ClCompile Include="..\CS2250_BinaryTreeLecture\Trophy.cpp" />
+    <ClCompile Include="..\CS2250_BinaryTreeLecture\Trophycase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\CS2250_BinaryTreeLecture\Trophy.h" />
+    <ClInclude Include="..\CS2250_BinaryTreeLecture\Trophycase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

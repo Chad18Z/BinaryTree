@@ -47,7 +47,7 @@ void BinaryTree::MakeEmpty(BinaryTreeNode* curr)
 // Public Insert adds the item into the tree.
 // If the tree is empty, adds the item as the root.
 // Otherwise, uses the private insert to recursively insert.
-void BinaryTree::Insert(const string& item)
+void BinaryTree::Insert(const Trophy& item)
 {
 	if (root == NULL)
 	{
@@ -65,7 +65,7 @@ void BinaryTree::Insert(const string& item)
 // to the left subtree.  If the item is greater, it is
 // added to the right subtree.  If there is no subtree,
 // the node is added as a child of this node.
-void BinaryTree::Insert(const string& item, BinaryTreeNode* curr)
+void BinaryTree::Insert(const Trophy& item, BinaryTreeNode* curr)
 {
 	// If the item is less than the current node, add it
 	// to the left subtree
@@ -73,8 +73,9 @@ void BinaryTree::Insert(const string& item, BinaryTreeNode* curr)
 	{
 		// If there is no left subtree, add a new child
 		if (curr->GetLeft() == NULL)
-		{
-			curr->SetLeft(new BinaryTreeNode(item));
+		{ 
+			BinaryTreeNode* newNode = new BinaryTreeNode(item);
+			curr->SetLeft(newNode);
 		}
 		// Recursively insert into the left subtree
 		else
@@ -136,7 +137,7 @@ void BinaryTree::FixHeight(BinaryTreeNode* curr)
 // Public Search method that uses the private version to search
 // from the root.  Returns TRUE if the item is found.  Returns 
 // FALSE if the tree is empty or if the item is not found.
-bool BinaryTree::Search(const string& item) const
+bool BinaryTree::Search(const Trophy& item) const
 {
 	if (root == NULL)
 	{
@@ -155,7 +156,7 @@ bool BinaryTree::Search(const string& item) const
 // the item, then the search is exhausted and the item
 // was not found.
 // Returns TRUE if the item is found, FALSE if not. 
-bool BinaryTree::Search(const string& item, BinaryTreeNode* curr) const
+bool BinaryTree::Search(const Trophy& item, BinaryTreeNode* curr) const
 {
 
 	if (item == curr->GetData()) return true;
@@ -204,7 +205,7 @@ bool BinaryTree::Search(const string& item, BinaryTreeNode* curr) const
 // and then fix the root pointer.  Note that since the root
 // has no parent, it must be handled slightly differently
 // than the rest of the tree
-bool BinaryTree::Remove(const string& item)
+bool BinaryTree::Remove(const Trophy& item)
 {
 	// TODO: Implement in Removal Assignment
 	return false;
@@ -213,7 +214,7 @@ bool BinaryTree::Remove(const string& item)
 // Remove(item, curr)
 // Find the PARENT of the node to remove, remove that node, and then
 // adjust the parent's pointer to point to the new subtree
-bool BinaryTree::Remove(const string& item, BinaryTreeNode* curr)
+bool BinaryTree::Remove(const Trophy& item, BinaryTreeNode* curr)
 {
 	// TODO: Implement in Removal Assignment
 	return false;

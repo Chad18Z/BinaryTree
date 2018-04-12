@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 
+
 using namespace std;
 
 // This is an enumeration of the three Trophy colors
@@ -26,6 +27,9 @@ public:
 	void SetLevel(int level);
 	void Print();
 
+	const bool operator <(const Trophy& a) const;
+	const bool operator >(const Trophy& a) const; 
+	const bool operator ==(const Trophy& a) const;
 
 private:
 	string* m_name; // holds the trophy's name
