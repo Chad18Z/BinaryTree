@@ -38,6 +38,7 @@ Trophy::Trophy(Trophy& trophyToCopy)
 // assignment operator
 Trophy& Trophy::operator= (const Trophy& trophy)
 {
+	
 	m_name = new string(*trophy.m_name);
 	m_color = new Color(*trophy.m_color);
 	m_level = new int(*trophy.m_level);
@@ -81,6 +82,28 @@ void Trophy::Print()
 	cout << *m_level << " : ";
 	cout << ColorToString(*m_color) << " ]" << endl;
 }
+
+// this function converts a Color value to a string
+string Trophy::ColorToString(Color& color)
+{
+	switch (color)
+	{
+	case 0:
+		return "BRONZE";
+		break;
+	case 1:
+		return "SILVER";
+		break;
+	case 2:
+		return "GOLD";
+		break;
+	default:
+		return "ERROR";
+		break;
+	}
+
+	return "";
+}
 const bool Trophy::operator<(const Trophy& a) const
 {
 
@@ -114,27 +137,7 @@ const bool Trophy::operator>(const Trophy& a) const
 }
 const bool Trophy::operator==(const Trophy& a) const
 {
-	return false;
+	if (a.m_level == this->m_level && a.m_color == this->m_color) return true;
+	else return false;
 }
 
-// this function converts a Color value to a string
-string Trophy::ColorToString(Color& color)
-{
-	switch (color)
-	{
-	case 0:
-		return "BRONZE";
-		break;
-	case 1:
-		return "SILVER";
-		break;
-	case 2:
-		return "GOLD";
-		break;
-	default:
-		return "ERROR";
-		break;
-	}
-
-	return "";
-}

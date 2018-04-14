@@ -28,7 +28,7 @@ void Trophycase::AddTrophy(Trophy& trophy)
 	// increment the counter
 	m_count++;
 }
-//// return the trophy at this index
+// return the trophy at this index
 //Trophy& Trophycase::GetTrophy(string name)
 //{
 //	return Trophies->Search(name);

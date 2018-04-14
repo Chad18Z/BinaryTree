@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <string>
 #include <sstream>
+#include "Trophycase.h"
 
 
 #include "BinaryTree.h"
@@ -10,7 +11,23 @@
 #define TEST_REMOVAL 0			// TODO: Change this to 1 for the second week to test your removal code
 
 using namespace std;
+// Declare function prototypes
+void DisplayWelcomeMessage();
+void DisplayGoodbyeMessage();
+void ExitApplication();
+string GetString(string);
+int GetShiftValue(string);
+void AddNewTrophy();
+bool SearchTrophy();
+void RemoveTrophy();
+void PreOrderPrint();
+void InOrderPrint();
+void PostOrderPrint();
+//void PrintTrophies();
+void PrintMenu();
+int FindIndexOfTrophy(string&);
 
+Trophycase* Trophies = new Trophycase(); // declare a trophycase
 string smallRootOnlyTree[] = { "A" };
 string smallRootOnlyTreeOutput[] = { "A ", "A ", "A " };
 
@@ -103,6 +120,7 @@ void TestTree(string test, string nodes[], int nbrNodes, string output[])
 //
 //	delete tree;
 //	cout << endl;
+
 }
 
 void RunTests()
@@ -125,14 +143,166 @@ void RunTests()
 	TestTree("largeTree", largeTree, 25, largeTreeOutputAVL);
 #endif
 }
+int RunTree()
+{
+	
+	int inputFromUser; // Initialize variable to hold user input
+
+	//DisplayWelcomeMessage(); // Show the welcome message
+							 // Main loop of the application
+	do
+	{
+		inputFromUser = 0;
+		PrintMenu();	// Display the menu
+
+		cin >> inputFromUser; // Get input from the user
+
+		switch (inputFromUser)
+		{
+		case 1:
+			AddNewTrophy(); // User chooses to add a trophy
+			break;
+		case 2:
+			SearchTrophy(); // User chooses to copy a trophy
+			break;
+		case 3:
+			RemoveTrophy(); // User chooses to delete a trophy
+			break;
+		case 4:
+			PreOrderPrint(); // User chooses to rename a trophy
+			break;
+		case 5:
+			InOrderPrint(); // User chooses to change the level of a trophy
+			break;
+		case 6:
+			PostOrderPrint(); // User chooses to change the color of a trophy
+			break;
+		//case 7:
+		//	PrintTrophies(); // User chooses to print all of the trophies
+		//	break;
+		case 7:
+			ExitApplication(); // User chooses to exit application
+			break;
+		}
+
+	} while (inputFromUser != 8);
+
+	return 0;
+}
+// This function displays the goodbye message
+void DisplayGoodbyeMessage()
+{
+	cout << "Thanks for using our application." << endl
+		<< "Please hit ENTER to exit" << endl;
+}
+// This function exits the application
+void ExitApplication()
+{
+	DisplayGoodbyeMessage();
+	int userInput; // Variable to hold user input
+	cin >> userInput; // Get input from user
+	exit(0); // Exit application
+}
+
+// Get an integer value from the user
+int GetShiftValue(string message)
+{
+
+	int userInput; // Declare variable to hold input from the user
+	do
+	{
+		cout << endl << message << endl; // Display prompt to the user
+		cin >> userInput; // Get input from user
+
+	} while (userInput < 1 || userInput > 50); // Check to be sure the user enters valid integers
+	return userInput;
+}
+// Gets a string of characters from the user
+string GetString(string message)
+{
+	char userInput[50];
+	cout << endl << message << endl; // Display prompt to the user	
+	cin.ignore();
+	cin.clear();
+	cin.get(userInput, 50); // get input from user
+	return userInput;
+}
+// Adds a new trophy to the array
+void AddNewTrophy()
+{
+	string trophyName = GetString("Please enter the trophy's name: ");
+	int trophyLevel = GetShiftValue("Please enter the trophy's level: ");
+	Color trophyColor;
+	string tempColor = "";
+	do
+	{
+		string tempColor = GetString("Please enter the trophy's color  BRONZE, SILVER, or GOLD (case sensitive): ");
+		if (tempColor == "GOLD")
+		{
+			trophyColor = GOLD;
+			tempColor = "";
+		}
+		else if (tempColor == "BRONZE")
+		{
+			trophyColor = BRONZE;
+			tempColor = "";
+		}
+		else if (tempColor == "SILVER")
+		{
+			trophyColor = SILVER;
+			tempColor = "";
+		}
+		else { tempColor = " "; }
+	} while (tempColor != "");
+
+
+	Trophy newTrophy(trophyName, trophyLevel, trophyColor); // instantiate new trophy
+	Trophies->AddTrophy(newTrophy);
+	cout << "New trophy added" << endl;
+}
+// This function displays the main menu
+void PrintMenu()
+{
+	cout << "********************************************************************************" << endl
+		<< "* Please select an option:" << endl
+		<< "* 1 - Add a new Trophy" << endl
+		<< "* 2 - Search for a Trophy" << endl
+		<< "* 3 - Remove a Trophy" << endl
+		<< "* 4 - Print Trophies Preorder" << endl
+		<< "* 5 - Print Trophies Inorder" << endl
+		<< "* 6 - Print Trophies Postorder" << endl
+		//<< "* 7 - Print all the Trophies" << endl
+		<< "* 7 - Exit the program" << endl
+		<< "********************************************************************************" << endl;
+}
 
 int main()
 {
 	RunTests();
 
-	// TODO: Put your menu structure here
+	RunTree();
 
 	char c;
 	cin.get(c);
 	return 0;
+}
+bool SearchTrophy()
+{
+	return true;
+}
+void RemoveTrophy()
+{
+
+}
+void PreOrderPrint()
+{
+
+}
+void InOrderPrint()
+{
+
+}
+void PostOrderPrint()
+{
+
 }
