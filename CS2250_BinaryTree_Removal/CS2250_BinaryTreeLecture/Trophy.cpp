@@ -29,7 +29,7 @@ Trophy::~Trophy()
 }
 
 // Copy constructor
-Trophy::Trophy(Trophy& trophyToCopy)
+Trophy::Trophy(const Trophy& trophyToCopy)
 {
 	m_name = new string(*trophyToCopy.m_name);
 	m_color = new Color(*trophyToCopy.m_color);
@@ -38,10 +38,9 @@ Trophy::Trophy(Trophy& trophyToCopy)
 // assignment operator
 Trophy& Trophy::operator= (const Trophy& trophy)
 {
-	
-	m_name = new string(*trophy.m_name);
-	m_color = new Color(*trophy.m_color);
-	m_level = new int(*trophy.m_level);
+	*m_name = *trophy.m_name;
+	*m_color = *trophy.m_color;
+	*m_level = *trophy.m_level;
 	return *this;
 }
 

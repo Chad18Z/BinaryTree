@@ -12,7 +12,6 @@
 
 using namespace std;
 // Declare function prototypes
-void DisplayWelcomeMessage();
 void DisplayGoodbyeMessage();
 void ExitApplication();
 string GetString(string);
@@ -256,8 +255,9 @@ void AddNewTrophy()
 	} while (tempColor != "");
 
 
-	Trophy newTrophy(trophyName, trophyLevel, trophyColor); // instantiate new trophy
-	Trophies->AddTrophy(newTrophy);
+	Trophy* newTrophy = new Trophy(trophyName, trophyLevel, trophyColor); // instantiate new trophy
+	Trophies->AddTrophy(*newTrophy);
+	delete newTrophy;
 	cout << "New trophy added" << endl;
 }
 // This function displays the main menu

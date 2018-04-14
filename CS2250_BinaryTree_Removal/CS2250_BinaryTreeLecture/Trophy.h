@@ -15,7 +15,7 @@ class Trophy
 public:
 	Trophy();
 	~Trophy();
-	Trophy(Trophy& trophyToCopy);
+	Trophy(const Trophy& trophyToCopy);
 	Trophy& operator=(const Trophy& trophy);
 	Trophy(string& name, int level, Color& color);
 	string GetName();
