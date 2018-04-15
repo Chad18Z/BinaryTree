@@ -11,8 +11,8 @@ class BinaryTree
 {
 public:
 	// Constructors and Destructors
-	BinaryTree(void);
-	~BinaryTree(void);
+	BinaryTree();
+	~BinaryTree();
 
 	// Facilitators
 	void Insert(const Trophy& item);
@@ -23,15 +23,18 @@ public:
 	friend ostream& operator<< (ostream& sout, const BinaryTree& tree);
 
 	// Print methods
-	void InOrderPrint(ostream& sout) const;
-	void PreOrderPrint(ostream& sout) const;
-	void PostOrderPrint(ostream& sout) const;
+	//void InOrderPrint(ostream& sout) const;
+	//void PreOrderPrint(ostream& sout) const;
+	//void PostOrderPrint(ostream& sout) const;
 
-private:
 	// Recursive Print methods
 	void InOrderPrint(ostream& sout, BinaryTreeNode* curr) const;
 	void PreOrderPrint(ostream& sout, BinaryTreeNode* curr) const;
 	void PostOrderPrint(ostream& sout, BinaryTreeNode* curr) const;
+
+	BinaryTreeNode* root;
+
+private:
 
 	// Recursive Facilitators
 	void Insert(const Trophy& item, BinaryTreeNode* curr);
@@ -45,7 +48,7 @@ private:
 	BinaryTreeNode* Rebalance(BinaryTreeNode* curr);
 	void FixHeight(BinaryTreeNode* curr);
 	
-	BinaryTreeNode* root;
+
 };
 
 #endif

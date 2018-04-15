@@ -300,7 +300,7 @@ void PreOrderPrint()
 }
 void InOrderPrint()
 {
-
+	Trophies->PrintInOrder();
 }
 void PostOrderPrint()
 {

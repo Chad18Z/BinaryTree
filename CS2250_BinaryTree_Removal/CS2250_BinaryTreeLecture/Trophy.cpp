@@ -13,8 +13,8 @@ Trophy::Trophy()
 // Constructor for three parameters
 Trophy::Trophy(string& name, int level, Color& color)
 {
-	m_level = new int(level);
 	m_name = new string(name);
+	m_level = new int(level);
 	m_color = new Color(color);
 }
 // destructor
@@ -31,12 +31,12 @@ Trophy::~Trophy()
 // Copy constructor
 Trophy::Trophy(const Trophy& trophyToCopy)
 {
-	m_name = new string(*trophyToCopy.m_name);
-	m_color = new Color(*trophyToCopy.m_color);
-	m_level = new int(*trophyToCopy.m_level);
+	m_name = trophyToCopy.m_name;
+	m_color = trophyToCopy.m_color;
+	m_level = trophyToCopy.m_level;
 }
 // assignment operator
-Trophy& Trophy::operator= (const Trophy& trophy)
+Trophy& Trophy::operator=(const Trophy& trophy)
 {
 	*m_name = *trophy.m_name;
 	*m_color = *trophy.m_color;
@@ -75,7 +75,7 @@ void Trophy::SetColor(Color color)
 	*m_color = color;
 }
 // print the trophy's information to the screen
-void Trophy::Print()
+void Trophy::Print() const
 {
 	cout << "[ " << *m_name << " : ";
 	cout << *m_level << " : ";
@@ -83,7 +83,7 @@ void Trophy::Print()
 }
 
 // this function converts a Color value to a string
-string Trophy::ColorToString(Color& color)
+string Trophy::ColorToString(Color& color) const
 {
 	switch (color)
 	{

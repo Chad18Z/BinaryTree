@@ -18,10 +18,10 @@ public:
 	int GetSizeOfTrophycase();
 	//Trophy& GetTrophy(string name); //search for trophy
 	void DeleteTrophy(int index);
+	void PrintInOrder();
 	
 private:
-	BinaryTree* Trophies;
-	int m_size; 
+	BinaryTree* Trophies; 
 	int m_count; 
 };
 

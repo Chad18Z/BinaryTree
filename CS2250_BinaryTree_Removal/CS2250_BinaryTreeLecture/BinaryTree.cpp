@@ -1,8 +1,10 @@
 #include "BinaryTree.h"
+#include <sstream>
+
 
 // BinaryTree Constructor
 // Initialize the tree to empty
-BinaryTree::BinaryTree(void)
+BinaryTree::BinaryTree()
 {
 	root = NULL;
 }
@@ -10,12 +12,20 @@ BinaryTree::BinaryTree(void)
 // BinaryTree Destructor
 // Deletes the root node.
 // Relies on Node's delete method.
-BinaryTree::~BinaryTree(void)
+BinaryTree::~BinaryTree()
 {
 	MakeEmpty(root);
 	delete root;
 	root = NULL;
 }
+
+
+// Returns the root node of the tree
+//BinaryTreeNode* BinaryTree::GetRoot()
+//{
+//	cout << *root;
+//	return root;
+//}
 
 void BinaryTree::MakeEmpty(BinaryTreeNode* curr)
 {
@@ -48,10 +58,11 @@ void BinaryTree::MakeEmpty(BinaryTreeNode* curr)
 // If the tree is empty, adds the item as the root.
 // Otherwise, uses the private insert to recursively insert.
 void BinaryTree::Insert(const Trophy& item)
-{
+{	
 	if (root == NULL)
-	{
+	{		
 		root = new BinaryTreeNode(item);
+		//root->GetData().Print();
 	}
 	else
 	{
@@ -67,6 +78,8 @@ void BinaryTree::Insert(const Trophy& item)
 // the node is added as a child of this node.
 void BinaryTree::Insert(const Trophy& item, BinaryTreeNode* curr)
 {
+	//item.Print();
+	//curr->GetData().Print();
 	// If the item is less than the current node, add it
 	// to the left subtree
 	if (item < curr->GetData())
@@ -74,8 +87,9 @@ void BinaryTree::Insert(const Trophy& item, BinaryTreeNode* curr)
 		// If there is no left subtree, add a new child
 		if (curr->GetLeft() == NULL)
 		{ 
-			BinaryTreeNode* newNode = new BinaryTreeNode(item);
-			curr->SetLeft(newNode);
+			/*BinaryTreeNode* newNode = new BinaryTreeNode(item);*/
+			curr->SetLeft(new BinaryTreeNode(item));
+			/*delete newNode;*/
 		}
 		// Recursively insert into the left subtree
 		else
@@ -90,7 +104,9 @@ void BinaryTree::Insert(const Trophy& item, BinaryTreeNode* curr)
 		// If there is no right subtree, add a new child
 		if (curr->GetRight() == NULL)
 		{
+			//BinaryTreeNode* newNode = new BinaryTreeNode(item);
 			curr->SetRight(new BinaryTreeNode(item));
+			//delete newNode;
 		}
 		// Recursively insert into the right subtree
 		else
@@ -238,6 +254,7 @@ BinaryTreeNode* BinaryTree::RemoveNode(BinaryTreeNode* curr)
 // the current node, then prints the right subree.
 void BinaryTree::InOrderPrint(ostream& sout, BinaryTreeNode* curr) const
 {
+	curr->GetData().Print();
 	// If the current Node exists
 	if (curr == NULL)
 	{
@@ -252,7 +269,7 @@ void BinaryTree::InOrderPrint(ostream& sout, BinaryTreeNode* curr) const
 
 	// Print the current node
 	//sout << curr->GetData() << endl;
-	sout << *curr << " ";
+	//sout << *curr << " ";
 
 	// If the node has a right subtree, print it last
 	if (curr->GetRight() != NULL)

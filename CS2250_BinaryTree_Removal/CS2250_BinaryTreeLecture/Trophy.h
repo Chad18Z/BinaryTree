@@ -19,13 +19,13 @@ public:
 	Trophy& operator=(const Trophy& trophy);
 	Trophy(string& name, int level, Color& color);
 	string GetName();
-	string ColorToString(Color& color);
+	string ColorToString(Color& color) const;
 	int GetLevel();
 	Color GetColor();
 	void SetColor(Color color);
 	void SetName(string& name);
 	void SetLevel(int level);
-	void Print();
+	void Print() const;
 
 	const bool operator <(const Trophy& a) const;
 	const bool operator >(const Trophy& a) const; 

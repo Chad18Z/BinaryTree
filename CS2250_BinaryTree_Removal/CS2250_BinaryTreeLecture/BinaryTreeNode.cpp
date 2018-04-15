@@ -13,12 +13,12 @@ int BinaryTreeNode::GetNbrNodes()
 // Increment the node count
 BinaryTreeNode::BinaryTreeNode(const Trophy& item)
 {
-	*data = item;
+	data = new Trophy(item);
 	right = NULL;
 	left = NULL;
 	height = 0;
-
 	++nbrNodes;
+	cout << nbrNodes;
 }
 
 // Copy Constructor
@@ -29,8 +29,8 @@ BinaryTreeNode::BinaryTreeNode(const BinaryTreeNode& node)
 	right = node.right;
 	left = node.left;
 	height = node.height;
-
 	++nbrNodes;
+	cout << nbrNodes;
 }
 
 // BinaryTreeNode Destructor
@@ -89,8 +89,6 @@ void BinaryTreeNode::SetHeight(int height)
 {
 	this->height = height;
 }
-
-
 
 // Display the node's data
 ostream& operator<<(ostream& sout, const BinaryTreeNode& node)

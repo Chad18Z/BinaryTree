@@ -7,7 +7,7 @@ using namespace std;
 Trophycase::Trophycase()
 {	
 	m_count = 0;
-	m_size = 5;
+
 	Trophies = new BinaryTree();
 }
 // return the total number of trophies in the case
@@ -18,15 +18,19 @@ int Trophycase::GetNumberOfTrophies()
 // returns the size of the trophycase
 int Trophycase::GetSizeOfTrophycase()
 {
-	return m_size;
+	return m_count;
 }
 // Adds a new trophy to the trophycase
 void Trophycase::AddTrophy(Trophy& trophy)
 {
 	Trophies->Insert(trophy);
-
 	// increment the counter
 	m_count++;
+}
+void Trophycase::PrintInOrder()
+{
+
+	Trophies->InOrderPrint(cout, Trophies->root);
 }
 // return the trophy at this index
 //Trophy& Trophycase::GetTrophy(string name)
