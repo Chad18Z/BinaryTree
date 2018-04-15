@@ -27,6 +27,7 @@ void PrintMenu();
 int FindIndexOfTrophy(string&);
 
 Trophycase* Trophies = new Trophycase(); // declare a trophycase
+
 string smallRootOnlyTree[] = { "A" };
 string smallRootOnlyTreeOutput[] = { "A ", "A ", "A " };
 

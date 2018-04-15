@@ -55,6 +55,7 @@ BinaryTreeNode* BinaryTreeNode::GetRight() const
 // Return the data in the node
 const Trophy& BinaryTreeNode::GetData() const
 {
+	
 	return *data;
 }
 
@@ -93,7 +94,7 @@ void BinaryTreeNode::SetHeight(int height)
 // Display the node's data
 ostream& operator<<(ostream& sout, const BinaryTreeNode& node)
 {
-	sout << node.GetData();
+	sout << "Should be printing node data";
 	return sout;
 }
 

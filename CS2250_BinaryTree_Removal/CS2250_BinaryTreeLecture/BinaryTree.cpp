@@ -61,11 +61,15 @@ void BinaryTree::Insert(const Trophy& item)
 {	
 	if (root == NULL)
 	{		
-		root = new BinaryTreeNode(item);
-		//root->GetData().Print();
+		BinaryTreeNode* temp = new BinaryTreeNode(item);
+		root = temp;
+		cout << root;
+		root->GetData().Print();
 	}
 	else
 	{
+		cout << root;
+		root->GetData().Print();
 		Insert(item, root);
 	}
 }
@@ -78,7 +82,6 @@ void BinaryTree::Insert(const Trophy& item)
 // the node is added as a child of this node.
 void BinaryTree::Insert(const Trophy& item, BinaryTreeNode* curr)
 {
-	//item.Print();
 	//curr->GetData().Print();
 	// If the item is less than the current node, add it
 	// to the left subtree
@@ -87,9 +90,9 @@ void BinaryTree::Insert(const Trophy& item, BinaryTreeNode* curr)
 		// If there is no left subtree, add a new child
 		if (curr->GetLeft() == NULL)
 		{ 
-			/*BinaryTreeNode* newNode = new BinaryTreeNode(item);*/
+
 			curr->SetLeft(new BinaryTreeNode(item));
-			/*delete newNode;*/
+
 		}
 		// Recursively insert into the left subtree
 		else
@@ -103,10 +106,9 @@ void BinaryTree::Insert(const Trophy& item, BinaryTreeNode* curr)
 	{
 		// If there is no right subtree, add a new child
 		if (curr->GetRight() == NULL)
-		{
-			//BinaryTreeNode* newNode = new BinaryTreeNode(item);
+		{			
 			curr->SetRight(new BinaryTreeNode(item));
-			//delete newNode;
+			curr->GetRight()->GetData().Print();		
 		}
 		// Recursively insert into the right subtree
 		else
@@ -250,7 +252,7 @@ BinaryTreeNode* BinaryTree::RemoveNode(BinaryTreeNode* curr)
 }
 void BinaryTree::InOrderPrint(ostream& sout) const
 {
-	this->root->GetData().Print();
+	cout << root;
 	InOrderPrint(sout, this->root);
 }
 void BinaryTree::PreOrderPrint(ostream& sout) const
@@ -267,7 +269,6 @@ void BinaryTree::PostOrderPrint(ostream& sout) const
 // the current node, then prints the right subree.
 void BinaryTree::InOrderPrint(ostream& sout, BinaryTreeNode* curr) const
 {
-	
 	// If the current Node exists
 	if (curr == NULL)
 	{	
@@ -277,14 +278,12 @@ void BinaryTree::InOrderPrint(ostream& sout, BinaryTreeNode* curr) const
 	// If the node has a left subtree, print that first
 	if (curr->GetLeft() != NULL)
 	{
-
 		// Print the left subtree
 		InOrderPrint(sout, curr->GetLeft());
 	}
 
 	// Print the current node
-	cout << "Printing node";
-	//cout << *curr << " ";
+	sout << *curr;
 
 	// If the node has a right subtree, print it last
 	if (curr->GetRight() != NULL)
