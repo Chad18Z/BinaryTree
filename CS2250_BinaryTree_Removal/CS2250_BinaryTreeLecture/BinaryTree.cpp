@@ -248,32 +248,48 @@ BinaryTreeNode* BinaryTree::RemoveNode(BinaryTreeNode* curr)
 	// TODO: Implement in Removal Assignment
 	return NULL;	
 }
+void BinaryTree::InOrderPrint(ostream& sout) const
+{
+	this->root->GetData().Print();
+	InOrderPrint(sout, this->root);
+}
+void BinaryTree::PreOrderPrint(ostream& sout) const
+{
+	PreOrderPrint(sout, this->root);
+}
+void BinaryTree::PostOrderPrint(ostream& sout) const
+{
+	PostOrderPrint(sout, this->root);
+}
 
 // InOrderPrint
 // Prints the tree "in-order".  Prints the left subtree, prints
 // the current node, then prints the right subree.
 void BinaryTree::InOrderPrint(ostream& sout, BinaryTreeNode* curr) const
 {
-	curr->GetData().Print();
+	
 	// If the current Node exists
 	if (curr == NULL)
-	{
+	{	
+		cout << "null";
 		return;
 	}
 	// If the node has a left subtree, print that first
 	if (curr->GetLeft() != NULL)
 	{
+
 		// Print the left subtree
 		InOrderPrint(sout, curr->GetLeft());
 	}
 
 	// Print the current node
-	//sout << curr->GetData() << endl;
-	//sout << *curr << " ";
+	cout << "Printing node";
+	//cout << *curr << " ";
 
 	// If the node has a right subtree, print it last
 	if (curr->GetRight() != NULL)
 	{
+
 		// Print the right subtree
 		InOrderPrint(sout, curr->GetRight());
 	}
@@ -284,6 +300,7 @@ void BinaryTree::InOrderPrint(ostream& sout, BinaryTreeNode* curr) const
 // the left subtree, then prints the right subree.
 void BinaryTree::PreOrderPrint(ostream& sout, BinaryTreeNode* curr) const
 {
+	sout << curr->GetData();
 	// If the current Node exists
 	if (curr == NULL)
 	{

@@ -69,7 +69,7 @@ int BinaryTreeNode::GetHeight() const
 // Set the left child
 void BinaryTreeNode::SetLeft(BinaryTreeNode* left)
 {
-	*left = *left;
+	this->left = left;
 }
 
 // Set the right child

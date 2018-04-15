@@ -23,18 +23,19 @@ public:
 	friend ostream& operator<< (ostream& sout, const BinaryTree& tree);
 
 	// Print methods
-	//void InOrderPrint(ostream& sout) const;
-	//void PreOrderPrint(ostream& sout) const;
-	//void PostOrderPrint(ostream& sout) const;
+	void InOrderPrint(ostream& sout) const;
+	void PreOrderPrint(ostream& sout) const;
+	void PostOrderPrint(ostream& sout) const;
 
-	// Recursive Print methods
-	void InOrderPrint(ostream& sout, BinaryTreeNode* curr) const;
-	void PreOrderPrint(ostream& sout, BinaryTreeNode* curr) const;
-	void PostOrderPrint(ostream& sout, BinaryTreeNode* curr) const;
+
 
 	BinaryTreeNode* root;
 
 private:
+	// Recursive Print methods
+	void InOrderPrint(ostream& sout, BinaryTreeNode* curr) const;
+	void PreOrderPrint(ostream& sout, BinaryTreeNode* curr) const;
+	void PostOrderPrint(ostream& sout, BinaryTreeNode* curr) const;
 
 	// Recursive Facilitators
 	void Insert(const Trophy& item, BinaryTreeNode* curr);

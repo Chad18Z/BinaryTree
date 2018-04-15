@@ -29,8 +29,7 @@ void Trophycase::AddTrophy(Trophy& trophy)
 }
 void Trophycase::PrintInOrder()
 {
-
-	Trophies->InOrderPrint(cout, Trophies->root);
+	Trophies->root->GetData().Print();
 }
 // return the trophy at this index
 //Trophy& Trophycase::GetTrophy(string name)
